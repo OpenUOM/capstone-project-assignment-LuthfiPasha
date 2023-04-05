@@ -3,10 +3,11 @@ process.env.NODE_ENV = "test";
 
 fixture`Testing Student UI`
     .page`http://localhost:4401/student`
+    .page`http://localhost:4401/`
 
 test('Testing add students', async t => {
 
-   
+    await t.navigateTo("/dbinitialize");
 
     await t.navigateTo("/addStudent");
     await t.typeText("#student-id", "999999");
@@ -16,10 +17,13 @@ test('Testing add students', async t => {
     await t.click("#student-add");
 
     await t.navigateTo("/student");
+    await t.wait(1000);
 
     const table = Selector('#student-table')
     const rowCount = await table.find('tr').count;
 
     let tdText = await table.find('tr').nth(rowCount - 1).innerText;
     await t.expect(tdText).contains("Pasindu Basnayaka");
+
+    await t.click("#student-delete-999999");
 });
