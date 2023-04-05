@@ -25,7 +25,7 @@ export class AddNewStudentComponent implements OnInit {
 
 
     this.service.addStudent(student).subscribe((response)=>{
-      this.router.navigate(['student'])
+      this.router.navigate(['http://localhost:4401/student'])
     },(error)=>{
       console.log('ERROR - ', error)
     })
