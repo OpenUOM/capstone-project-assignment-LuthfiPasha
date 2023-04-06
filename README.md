@@ -7,3 +7,9 @@ This is the capstone project of the Trainee Full-Stack Developer Programme offer
 - Database: SQLite
 
 For more details check [the detailed documentation](/docs/README.md).
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 9b95b5240c21dd6f4da531b7919b6474d4fa4ca5
