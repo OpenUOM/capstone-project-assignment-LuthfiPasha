@@ -2,8 +2,8 @@ import { Selector } from 'testcafe';
 process.env.NODE_ENV = "test";
 
 fixture`Testing Student UI`
-    .page`http://localhost:4401/student`
-    .page`http://localhost:4401/`
+    .page`http://localhost:8080/student`
+    
 
 test('Testing add students', async t => {
 
@@ -17,7 +17,7 @@ test('Testing add students', async t => {
     await t.click("#student-add");
 
     await t.navigateTo("/student");
-    await t.wait(1000);
+   
 
     const table = Selector('#student-table')
     const rowCount = await table.find('tr').count;
@@ -25,5 +25,5 @@ test('Testing add students', async t => {
     let tdText = await table.find('tr').nth(rowCount - 1).innerText;
     await t.expect(tdText).contains("Pasindu Basnayaka");
 
-    await t.click("#student-delete-999999");
+  
 });
